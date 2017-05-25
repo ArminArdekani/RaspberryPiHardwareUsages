@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quick Usage Percentages</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+        <script src="{{ url_for('static', filename = 'js/jquery.knob.js') }}"></script>
+        <script src="{{ url_for('static', filename = 'js/gauges.js') }}"></script>
+        <link rel='stylesheet' href="{{ url_for('static', filename = 'css/style.css') }}" type='text/css' media='all' />
+    </head>
+    <body>
+        <div id="smaller-container">Quick Usage Percentages</div>
+        <div id="container">
+            <div class="gauge" >
+                <p>CPU</p>           
+                <input id="cpu-usage" class="knob" data-readOnly="true" data-width="200" data-min="0" data-displayPrevious=true value="0">
+            </div>
+            <div class="gauge" >
+                <p>Memory</p>           
+                <input id="memory-usage" class="knob" data-readOnly="true" data-width="200" data-min="0" data-displayPrevious=true value="0">
+            </div>
+            <div class="gauge" >
+                <p>Disk</p>           
+                <input id="disk-usage" class="knob" data-readOnly="true" data-width="200" data-min="0" data-max="0" data-displayPrevious=true value="0">
+            </div>
+            <div class="gauge" >
+                <p>CPU Temperature</p>           
+                <input id="temperature-usage" class="knob" data-readOnly="true" data-width="200" data-min="0" data-max="0" data-displayPrevious=true value="0">
+            </div>
+        </div>
+        <div id="smaller-container" style="height:5px;font-size: 1em;">See GitHub Project</div>
+    </body>
+</html>
