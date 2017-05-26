@@ -1,12 +1,10 @@
-from flask import Flask
-from flask import jsonify, make_response
-from flask import render_template
+from flask import Flask, jsonify, make_response, render_template
 app = Flask(__name__)
-import subprocess
-import json
+import subprocess, json
+from CONFIG import *
 
 @app.route("/")
-def main():
+def getHomePage():
     return render_template('index.html')
 
 @app.route("/getCpuUsage")
@@ -22,8 +20,8 @@ def getMemoryUsage():
     
 @app.route("/getDiskUsage")
 def getDiskUsage():
-    memory_usage = int(float(subprocess.check_output(["df -P / | awk '/%/ {print $5-0}'"], shell=True)))
-    return json.dumps({"percentage": memory_usage});
+    disk_usage = int(float(subprocess.check_output(["df -P / | awk '/%/ {print $5-0}'"], shell=True)))
+    return json.dumps({"percentage": disk_usage});
     
 @app.route("/getTemperatureUsage")
 def getTemperatureUsage():
@@ -31,4 +29,4 @@ def getTemperatureUsage():
     return json.dumps({"percentage": cpu_temperature});
     
 if __name__ == "__main__":
-    app.run(host='192.168.0.99', port=1337, debug=True)
+    app.run(host=HOST, port=PORT, debug=DEBUG);
