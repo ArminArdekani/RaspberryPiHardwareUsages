@@ -54,14 +54,14 @@ function run_gauge(gauge_name){
 
 //when the document is ready, update the gauges every three seconds.
 $(document).ready(function($) {    
+    //leveraging jQuery Knob for gauge UI.
+    $(".knob").knob();
     setInterval(function() {
-     
+        
         run_gauge("cpu");
         run_gauge("memory");
         run_gauge("disk");
         run_gauge("temperature")
-        //leveraging jQuery Knob for gauge UI.
-        $(".knob").knob();
-
-    }, 3000);   
+        
+    }, 1000);   
 });
